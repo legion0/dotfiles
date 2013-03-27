@@ -4,7 +4,7 @@
 from __future__ import print_function
 
 # change those symbols to whatever you prefer
-symbols = {'ahead of': '↑·', 'behind': '↓·', 'prehash':':'}
+symbols = {'ahead of': 'A', 'behind': 'B', 'prehash':':'}
 
 from subprocess import Popen, PIPE
 
