@@ -1,0 +1,71 @@
+! ~/.Xdefaults - X default resource settings
+Rxvt*geometry: 130x60
+!Rxvt*borderColor: Blue
+!Rxvt*scrollColor: Blue
+!Rxvt*troughColor: Gray
+Rxvt*scrollBar: True
+Rxvt*scrollBar_right: True
+Rxvt*font: Lucida Console-12
+Rxvt*SaveLines: 10000
+Rxvt*loginShell: True
+! VIM-like colors
+!Rxvt*background: black
+!Rxvt*foreground: gray
+!Rxvt*color0:    #000000
+!Rxvt*color1:    #FFFFFF
+!Rxvt*color2:    #00A800
+!Rxvt*color3:    #FFFF00
+!Rxvt*color4:    #0000A8
+!Rxvt*color5:    #A800A8
+!Rxvt*color6:    #00A8A8
+!Rxvt*color7:    #D8D8D8
+!Rxvt*color8:    #000000
+!Rxvt*color9:    #FFFFFF
+!Rxvt*color10:   #00A800
+!Rxvt*color11:   #FFFF00
+!Rxvt*color12:   #0000A8
+!Rxvt*color13:   #A800A8
+!Rxvt*color14:   #00A8A8
+!Rxvt*color15:   #D8D8D8
+!
+!rxvt.background: #000000
+!rxvt.foreground: #D3D2D3
+!rxvt.color0: #000000
+!rxvt.color1: #FF7768
+!rxvt.color2: #ABFA68
+!rxvt.color3: #FFFD88
+!rxvt.color4: #98D0FE
+!rxvt.color5: #FF85FD
+!rxvt.color6: #CACBFE
+!rxvt.color7: #EFEFEF
+!rxvt.color8: #848484
+!rxvt.color9: #FFBCB5
+!rxvt.color10: #D1FCB1
+!rxvt.color11: #FFFDD0
+!rxvt.color12: #BADFFF
+!rxvt.color13: #FFA9FE
+!rxvt.color14: #E2E3FE
+!rxvt.color15: #FFFFFF
+!
+! easy on the eyes 
+Rxvt*color0: #000010       
+Rxvt*color1: #9e1828       
+Rxvt*color2: #aece92       
+Rxvt*color3: #968a38       
+Rxvt*color4: #414171       
+Rxvt*color5: #963c59       
+Rxvt*color6: #418179       
+Rxvt*color7: #bebebe       
+Rxvt*color8: #666666       
+Rxvt*color9: #cf6171       
+Rxvt*color10: #c5f779      
+Rxvt*color11: #fff796      
+Rxvt*color12: #4186be      
+Rxvt*color13: #cf9ebe      
+Rxvt*color14: #71bebe      
+Rxvt*color15: #ffffff      
+Rxvt*background: 0 
+Rxvt*foreground: 15 
+Rxvt*cursorColor: magenta
+!
+! eof

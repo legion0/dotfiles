@@ -1,0 +1,12 @@
+winhome
+workspace
+VirtualBox VMs
+postpc-workspace
+.pip
+.ssh
+.bash_history
+.viminfo
+.lesshst
+.inputrc
+.VirtualBox
+*.swp

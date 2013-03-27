@@ -1,0 +1,35 @@
+[user]
+	name = 
+	email = 
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[core]
+	eol = lf
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	fe = fetch
+	ls = log --pretty=oneline --abbrev-commit --graph --decorate
+#	ls = log --pretty=format:'%C(bold blue)%h%C(reset) %C(bold yellow)%d%C(reset) %s' --graph
+	la = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%s%C(reset) %C(bold white)[%cn]%C(reset)' --graph --all
+	ll = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(bold white)[%cn]%C(reset)' -M --graph --all --name-status
+	diff-staged = diff --staged -M
+	diff-last = diff --cached -M HEAD~
+	diff = diff -M
+	aliases = "!git config -l | grep alias | cut -c 7-" # Magic :)
+	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+	catch = !git daemon --reuseaddr --verbose --base-path=. --export-all --enable=receive-pack ./.git
+	text-files = grep -I --name-only ''
+	lost = fsck --unreachable --no-reflogs
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false

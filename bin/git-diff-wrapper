@@ -1,0 +1,6 @@
+#!/bin/bash
+#echo $*
+#vimdiff "$1" "$2"
+#echo "$1" "$2"
+vim -
+
