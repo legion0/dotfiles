@@ -10,3 +10,4 @@ postpc-workspace
 .inputrc
 .VirtualBox
 *.swp
+.vim/.netrwhist
