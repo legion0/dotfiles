@@ -39,7 +39,7 @@ GIT_PROMPT_UNTRACKED="U"
 GIT_PROMPT_CLEAN="${BGreen}V"
 
 PROMPT_START="($?)\!|$COLOR1\u@\h$ENDCOLOR $COLOR2\w$ENDCOLOR"
-PROMPT_END="\n"
+PROMPT_END="\n$ "
 #PROMPT_START="$Yellow$PathShort$ResetColor"
 #PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
 
@@ -47,7 +47,7 @@ PROMPT_END="\n"
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
     local gitstatus="${__GIT_PROMPT_DIR}/gitstatus.py"
-    
+
     _GIT_STATUS=$(python $gitstatus)
     __CURRENT_GIT_STATUS=($_GIT_STATUS)
 	GIT_BRANCH=${__CURRENT_GIT_STATUS[0]}
