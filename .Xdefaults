@@ -5,9 +5,12 @@
 !Rxvt*troughColor: Gray
 *scrollBar: True
 *scrollBar_right: True
+!
+! for cygwin use -fn arg for Courier
 !*font: Lucida Console-12
 !*font: 9x15
 *font:xft:Inconsolata
+!
 *SaveLines: 10000
 *loginShell: True
 ! VIM-like colors
@@ -49,7 +52,7 @@
 !.color14: #E2E3FE
 !.color15: #FFFFFF
 !
-! easy on the eyes 
+! easy on the eyes
 *color0: #000010
 *color1: #9e1828
 *color2: #aece92
