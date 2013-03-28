@@ -1,9 +1,9 @@
-# To the extent possible under law, the author(s) have dedicated all 
-# copyright and related and neighboring rights to this software to the 
-# public domain worldwide. This software is distributed without any warranty. 
-# You should have received a copy of the CC0 Public Domain Dedication along 
-# with this software. 
-# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+# To the extent possible under law, the author(s) have dedicated all
+# copyright and related and neighboring rights to this software to the
+# public domain worldwide. This software is distributed without any warranty.
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software.
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 # base-files version 4.1-1
 
@@ -22,6 +22,11 @@
 # a patch to the cygwin mailing list.
 
 # User dependent .bash_profile file
+
+moreSources=~/.bash/source/profile/*.sh
+if stat -t $moreSources >/dev/null 2>&1; then
+	for f in $moreSources; do source $f; done
+fi
 
 # source the users bashrc if it exists
 if [ -f "${HOME}/.bashrc" ] ; then
@@ -42,3 +47,4 @@ fi
 # if [ -d "${HOME}/info" ]; then
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
+
