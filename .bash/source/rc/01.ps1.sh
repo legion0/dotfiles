@@ -8,3 +8,7 @@ COLOR3="\[\e[34m\]"
 # with git branch
 #export PS1="$COLOR1\u@\h$ENDCOLOR $COLOR2\w$ENDCOLOR$COLOR3$(__git_ps1 " (%s)")$ENDCOLOR\n$ "
 #export PS1="($?)\!|$COLOR1\u@\h$ENDCOLOR $COLOR2\w$ENDCOLOR$COLOR3$(__git_ps1 " (%s)")$ENDCOLOR\n$ "
+
+# for git-prompt.sh
+export PROMPT_START="($?)\!|$COLOR1\u@\h$ENDCOLOR $COLOR2\w$ENDCOLOR"
+export PROMPT_END="\n$ "
