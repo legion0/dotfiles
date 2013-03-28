@@ -1,13 +1,15 @@
 ! ~/.Xdefaults - X default resource settings
-Rxvt*geometry: 130x60
+*geometry: 130x60
 !Rxvt*borderColor: Blue
 !Rxvt*scrollColor: Blue
 !Rxvt*troughColor: Gray
-Rxvt*scrollBar: True
-Rxvt*scrollBar_right: True
-Rxvt*font: Lucida Console-12
-Rxvt*SaveLines: 10000
-Rxvt*loginShell: True
+*scrollBar: True
+*scrollBar_right: True
+!*font: Lucida Console-12
+!*font: 9x15
+*font:xft:Inconsolata
+*SaveLines: 10000
+*loginShell: True
 ! VIM-like colors
 !Rxvt*background: black
 !Rxvt*foreground: gray
@@ -28,44 +30,44 @@ Rxvt*loginShell: True
 !Rxvt*color14:   #00A8A8
 !Rxvt*color15:   #D8D8D8
 !
-!rxvt.background: #000000
-!rxvt.foreground: #D3D2D3
-!rxvt.color0: #000000
-!rxvt.color1: #FF7768
-!rxvt.color2: #ABFA68
-!rxvt.color3: #FFFD88
-!rxvt.color4: #98D0FE
-!rxvt.color5: #FF85FD
-!rxvt.color6: #CACBFE
-!rxvt.color7: #EFEFEF
-!rxvt.color8: #848484
-!rxvt.color9: #FFBCB5
-!rxvt.color10: #D1FCB1
-!rxvt.color11: #FFFDD0
-!rxvt.color12: #BADFFF
-!rxvt.color13: #FFA9FE
-!rxvt.color14: #E2E3FE
-!rxvt.color15: #FFFFFF
+!.background: #000000
+!.foreground: #D3D2D3
+!.color0: #000000
+!.color1: #FF7768
+!.color2: #ABFA68
+!.color3: #FFFD88
+!.color4: #98D0FE
+!.color5: #FF85FD
+!.color6: #CACBFE
+!.color7: #EFEFEF
+!.color8: #848484
+!.color9: #FFBCB5
+!.color10: #D1FCB1
+!.color11: #FFFDD0
+!.color12: #BADFFF
+!.color13: #FFA9FE
+!.color14: #E2E3FE
+!.color15: #FFFFFF
 !
 ! easy on the eyes 
-Rxvt*color0: #000010       
-Rxvt*color1: #9e1828       
-Rxvt*color2: #aece92       
-Rxvt*color3: #968a38       
-Rxvt*color4: #414171       
-Rxvt*color5: #963c59       
-Rxvt*color6: #418179       
-Rxvt*color7: #bebebe       
-Rxvt*color8: #666666       
-Rxvt*color9: #cf6171       
-Rxvt*color10: #c5f779      
-Rxvt*color11: #fff796      
-Rxvt*color12: #4186be      
-Rxvt*color13: #cf9ebe      
-Rxvt*color14: #71bebe      
-Rxvt*color15: #ffffff      
-Rxvt*background: 0 
-Rxvt*foreground: 15 
-Rxvt*cursorColor: magenta
+*color0: #000010
+*color1: #9e1828
+*color2: #aece92
+*color3: #968a38
+*color4: #414171
+*color5: #963c59
+*color6: #418179
+*color7: #bebebe
+*color8: #666666
+*color9: #cf6171
+*color10: #c5f779
+*color11: #fff796
+*color12: #4186be
+*color13: #cf9ebe
+*color14: #71bebe
+*color15: #ffffff
+*background: 0
+*foreground: 15
+*cursorColor: magenta
 !
 ! eof
