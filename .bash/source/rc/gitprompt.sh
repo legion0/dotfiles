@@ -38,8 +38,12 @@ GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="U"
 GIT_PROMPT_CLEAN="${BGreen}V"
 
-#PROMPT_START="$Yellow$PathShort$ResetColor"
-#PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
+if [ -e ps1.sh ]; then
+	source ps1.sh
+else
+	PROMPT_START="$Yellow$PathShort$ResetColor"
+	PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
+fi
 
 
 function update_current_git_vars() {
