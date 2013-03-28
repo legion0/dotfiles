@@ -9,3 +9,6 @@ nmap <C-h> :diffget LOCAL<CR>
 nmap <C-l> :diffget REMOTE<CR>
 nmap <C-k> [c
 nmap <C-j> ]c
+
+:nnoremap / /\v
+:nnoremap s :%s/\v
