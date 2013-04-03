@@ -1,42 +1,76 @@
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-
-from __future__ import print_function
-
-# change those symbols to whatever you prefer
-symbols = {'ahead of': 'A', 'behind': 'B', 'prehash':':'}
 
 from subprocess import Popen, PIPE
+import sys, os
+from re import finditer
+from json import dumps
 
-import sys
-gitsym = Popen(['git', 'symbolic-ref', 'HEAD'], stdout=PIPE, stderr=PIPE)
-branch, error = gitsym.communicate()
+################################################################################
+########## Config ##############################################################
+################################################################################
 
-error_string = error.decode('utf-8')
+symbols = {'ahead of': 'A', 'behind': 'B', 'prehash':':'}
 
-if 'fatal: Not a git repository' in error_string:
-	sys.exit(0)
+################################################################################
+########## End - Config ########################################################
+################################################################################
 
-branch = branch.decode('utf-8').strip()[11:]
+NOT_IN_REPO_STR = 'fatal: Not a git repository'
+CWD = os.getcwd()
 
-res, err = Popen(['git','diff','--name-status'], stdout=PIPE, stderr=PIPE).communicate()
-err_string = err.decode('utf-8')
-if 'fatal' in err_string:
-	sys.exit(0)
-changed_files = [namestat[0] for namestat in res.splitlines()]
-staged_files = [namestat[0] for namestat in Popen(['git','diff', '--staged','--name-status'], stdout=PIPE).communicate()[0].splitlines()]
-nb_changed = len(changed_files) - changed_files.count('U')
-nb_U = staged_files.count('U')
-nb_staged = len(staged_files) - nb_U
-staged = str(nb_staged)
-conflicts = str(nb_U)
-changed = str(nb_changed)
-nb_untracked = len(Popen(['git','ls-files','--others','--exclude-standard'],stdout=PIPE).communicate()[0].splitlines())
-untracked = str(nb_untracked)
-if not nb_changed and not nb_staged and not nb_U and not nb_untracked:
-	clean = '1'
-else:
-	clean = '0'
+def _die(msg = None, returncode = -1):
+	if msg is not None:
+		stream = sys.stdout if returncode == 0 else sys.stderr
+		print >> stream, msg
+	exit(returncode)
+def dump(o):
+	print dumps(o, indent=4)
+
+p = Popen(['git', 'symbolic-ref', 'HEAD'], stdout=PIPE, stderr=PIPE)
+stdoutdata, stderrdata = p.communicate()
+if NOT_IN_REPO_STR in stderrdata:
+	_die(None, 0)
+#branch = stdoutdata[11:].strip()
+branch = stdoutdata[11:-1]
+
+stdoutdata, stderrdata = Popen(['git', 'rev-parse',  '--show-toplevel'], stdout=PIPE, stderr=PIPE).communicate()
+if stderrdata != "":
+	_die("BAD -2", -2)
+gitRoot = stdoutdata.strip()
+
+stdoutdata, stderrdata = Popen(['git','status','--porcelain'], stdout=PIPE, stderr=PIPE).communicate()
+if 'fatal' in stderrdata:
+	_die("BAD -1", -1)
+#print repr(stdoutdata)
+data = [x.groupdict() for x in finditer(r"(?P<mode>(?P<m1>.)(?P<m2>.)) (?P<path>.+?)(?: -> (?P<otherpath>.+))?\n", stdoutdata)]
+#dump(data)
+staged = 0
+untracked = 0
+modefied = 0
+dirty = 0
+other = 0
+for item in data:
+	pathInDir = not os.path.relpath(os.path.join(gitRoot, item["path"]), CWD).startswith("..")
+	otherpathInDir = False
+	if item["otherpath"] is not None:
+		otherpathInDir = not os.path.relpath(os.path.join(gitRoot, item["otherpath"]), CWD).startswith("..")
+#	print pathInDir, otherpathInDir
+	if item["mode"] == "??":
+		if pathInDir:
+			untracked += 1
+	elif item["m1"] in "MADRC" and item["m2"] in " MD":
+		staged += 1
+	elif item["m1"] in " MARC" and item["m2"] in "MD":
+		if pathInDir:
+			modefied += 1
+	elif item["m1"] in "DAU" and item["m2"] in "DAU":
+		if pathInDir or otherpathInDir:
+			dirty += 1
+	else:
+		other += 1
+#print "U%d S%d M%d D%d O%d" % (untracked, staged, modefied, dirty, other)
+
+clean = str(int(untracked + staged + modefied + dirty + other == 0))
 
 remote = ''
 
@@ -72,9 +106,10 @@ if remote == "":
 out = '\n'.join([
 	str(branch),
 	str(remote),
-	staged,
-	conflicts,
-	changed,
-	untracked,
+	str(staged),
+	str(dirty),
+	str(modefied),
+	str(untracked),
+	str(other),
 	clean])
 print(out)
