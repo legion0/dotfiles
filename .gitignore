@@ -3,7 +3,7 @@
 winhome
 workspace
 VirtualBox VMs
-postpc-workspace
+/*-workspace
 .pip
 .ssh
 .bash_history
