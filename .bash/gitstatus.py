@@ -58,16 +58,14 @@ for item in data:
 	if item["mode"] == "??":
 		if pathInDir:
 			untracked += 1
-	elif item["m1"] in "MADRC" and item["m2"] in " MD":
+	if item["m1"] in "MADRC" and item["m2"] in " MD":
 		staged += 1
-	elif item["m1"] in " MARC" and item["m2"] in "MD":
+	if item["m1"] in " MARC" and item["m2"] in "MD":
 		if pathInDir:
 			modefied += 1
-	elif item["m1"] in "DAU" and item["m2"] in "DAU":
+	if item["m1"] in "DAU" and item["m2"] in "DAU":
 		if pathInDir or otherpathInDir:
 			dirty += 1
-	else:
-		other += 1
 #print "U%d S%d M%d D%d O%d" % (untracked, staged, modefied, dirty, other)
 
 clean = str(int(untracked + staged + modefied + dirty + other == 0))
