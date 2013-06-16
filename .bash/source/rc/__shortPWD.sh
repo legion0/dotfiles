@@ -1,6 +1,6 @@
 function __shortPWD {
 	local prefix="..."
-	local maxlength=24
+	local maxlength=35
 
 	local cwd="$PWD"
 	if [[ "$HOME" == ${cwd:0:${#HOME}} ]] ; then
