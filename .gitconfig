@@ -27,6 +27,8 @@
 	catch = !git daemon --reuseaddr --verbose --base-path=. --export-all --enable=receive-pack ./.git
 	text-files = grep -I --name-only ''
 	lost = fsck --unreachable --no-reflogs
+	merge = merge --no-ff
+	fetch = fetch -p
 [diff]
 	tool = vimdiff
 [merge]
