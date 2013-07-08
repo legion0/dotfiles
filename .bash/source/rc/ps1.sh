@@ -13,7 +13,7 @@ COLOR_RED="\[\e[31m\]"
 function __format_ret {
 	r=$?
 	if (($r != 0)); then
-		echo "$r "
+		echo " | $COLOR_RED$r$ENDCOLOR"
 	fi
 }
 
@@ -28,9 +28,8 @@ function __format_cwd {
 		echo $cwd
 	fi
 }
-
-PROMPT_START="$COLOR_RED\$(__format_ret)$ENDCOLOR$COLOR1\u@\h$ENDCOLOR $COLOR2\$(__format_cwd)$ENDCOLOR"
-PROMPT_END="\n\! $ "
+PROMPT_START="\!\$(__format_ret) [$COLOR1\u@\h$ENDCOLOR $COLOR2\$(__format_cwd)$ENDCOLOR]"
+PROMPT_END=" $ "
 
 if [[ -e gitprompt.sh ]]; then
 	export PROMPT_START="$PROMPT_START"
