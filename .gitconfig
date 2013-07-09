@@ -29,6 +29,8 @@
 	lost = fsck --unreachable --no-reflogs
 	merge = merge --no-ff
 	fetch = fetch -p
+	ignore = update-index --skip-worktree
+	unignore = update-index --no-skip-worktree
 [diff]
 	tool = vimdiff
 [merge]
