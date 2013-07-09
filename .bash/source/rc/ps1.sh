@@ -5,11 +5,6 @@ ENDCOLOR="\e[00m"
 COLOR_RED="\e[31m"
 if [[ -z "$PROMPT_FRAME_COLOR" ]]; then
 	PROMPT_FRAME_COLOR="\e[34m"
-	if [[ "${EUID}" == 0 ]]; then
-		PROMPT_FRAME_COLOR="\e[31m"
-	else
-		PROMPT_FRAME_COLOR="\e[34m"
-	fi
 fi
 
 # default cygwin
