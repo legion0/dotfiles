@@ -1,10 +1,10 @@
 if [ -e __shortPWD.sh ]; then
 	source __shortPWD.sh
 fi
-ENDCOLOR="\e[00m"
-COLOR_RED="\e[31m"
+ENDCOLOR="\[\e[00m\]"
+COLOR_RED="\[\e[31m\]"
 if [[ -z "$PROMPT_FRAME_COLOR" ]]; then
-	PROMPT_FRAME_COLOR="\e[34m"
+	PROMPT_FRAME_COLOR="\[\e[34m\]"
 fi
 
 # default cygwin
