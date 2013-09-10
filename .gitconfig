@@ -39,3 +39,5 @@
 	prompt = false
 [mergetool]
 	prompt = false
+[push]
+	default = current
