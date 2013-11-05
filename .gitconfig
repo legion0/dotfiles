@@ -8,6 +8,7 @@
 	interactive = auto
 [core]
 	eol = lf
+	pager = less -x4
 [alias]
 	co = checkout
 	ci = commit
