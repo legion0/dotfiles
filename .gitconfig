@@ -18,7 +18,8 @@
 	ls = log --pretty=oneline --abbrev-commit --graph --decorate
 	lsa = log --pretty=oneline --abbrev-commit --graph --decorate --all
 #	ls = log --pretty=format:'%C(bold blue)%h%C(reset) %C(bold yellow)%d%C(reset) %s' --graph
-	la = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%s%C(reset) %C(bold white)[%cn]%C(reset)' --graph --all
+	la = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%s%C(reset) %C(bold white)[%an]%C(reset)' --graph
+	la = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ci%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''        %C(white)%s%C(reset) %C(bold white)[%cn]%C(reset)' --graph
 	ll = log --format=format:'%C(bold blue)%h%C(reset) %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(bold white)[%cn]%C(reset)' -M --graph --all --name-status
 	diff-staged = diff --staged -M
 	diff-last = diff --cached -M HEAD~
