@@ -42,4 +42,4 @@
 [mergetool]
 	prompt = false
 [push]
-	default = current
+	default = tracking
