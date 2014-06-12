@@ -39,7 +39,7 @@
 [mergetool]
 	prompt = false
 [push]
-	default = tracking
+	default = upstream
 [include]
 	path = .gitconfig_local
 
