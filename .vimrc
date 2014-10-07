@@ -12,3 +12,6 @@ nmap <C-j> ]c
 
 :nnoremap / /\v
 :nnoremap s :%s/\v
+
+set incsearch
+set hlsearch
