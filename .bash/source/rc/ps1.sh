@@ -22,7 +22,8 @@ function __format_cwd {
 	fi
 }
 
-PROMPT_START="$PROMPT_FRAME_COLOR\342\224\214\$(ret_code=\$? && [[ \$ret_code -ne 0 ]] && echo \"\342\224\200[$COLOR_RED\$ret_code$PROMPT_FRAME_COLOR]\")\342\224\200[$ENDCOLOR\t$PROMPT_FRAME_COLOR]\342\224\200[\$(if [[ ${EUID} -ne 0 ]]; then echo -n \"$ENDCOLOR\u@\h\"; else echo -n \"$COLOR_RED\h\"; fi)$PROMPT_FRAME_COLOR]$ENDCOLOR"
+export PS1_CUSTOM_STR=""
+PROMPT_START="$PROMPT_FRAME_COLOR\342\224\214\$(ret_code=\$? && [[ \$ret_code -ne 0 ]] && echo \"\342\224\200[$COLOR_RED\$ret_code$PROMPT_FRAME_COLOR]\")\342\224\200[$ENDCOLOR\t$PROMPT_FRAME_COLOR]\342\224\200[\$(if [[ ${EUID} -ne 0 ]]; then echo -n \"$ENDCOLOR\u@\h\"; else echo -n \"$COLOR_RED\h\"; fi)$PROMPT_FRAME_COLOR]\$(if [ -n \"\${PS1_CUSTOM_STR}\" ]; then echo -n \"\342\224\200[${ENDCOLOR}${COLOR_RED}\${PS1_CUSTOM_STR}${ENDCOLOR}${PROMPT_FRAME_COLOR}]\"; fi)${ENDCOLOR}"
 PROMPT_END="\n$PROMPT_FRAME_COLOR\342\224\224\342\224\200[$ENDCOLOR\$(__format_cwd)$PROMPT_FRAME_COLOR]\342\224\200> $ENDCOLOR"
 
 if [[ -e gitprompt.sh ]]; then
