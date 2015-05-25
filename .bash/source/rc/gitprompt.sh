@@ -114,4 +114,6 @@ function set_virtualenv () {
   fi
 }
 
-PROMPT_COMMAND=setGitPrompt
+if [[ *"setGitPrompt"* != "${PROMPT_COMMAND}" ]]; then
+	PROMPT_COMMAND="${PROMPT_COMMAND} setGitPrompt;"
+fi
