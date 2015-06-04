@@ -10,6 +10,12 @@ nmap <C-l> :diffget REMOTE<CR>
 nmap <C-k> [c
 nmap <C-j> ]c
 
+" Copy to clipboard
+:nnoremap y "+y
+" Copy to clipboard in visual mode
+:xnoremap y "+y
+
+" Easier search
 :nnoremap / /\v
 :nnoremap s :%s/\v
 
