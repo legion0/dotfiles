@@ -21,3 +21,6 @@ nmap <C-j> ]c
 
 set incsearch
 set hlsearch
+
+" Preserve clipboard content format
+set paste
