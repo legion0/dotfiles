@@ -1,4 +1,14 @@
-$include /etc/inputrc
+# This file controls the behaviour of line input editing for
+# programs that use the GNU Readline library.  Existing
+# programs include FTP, Bash, and GDB.
+#
+# You can re-read the inputrc file with `bind -f ~/.inputrc`.
+# Lines beginning with '#' are comments.
+#
+# First, include any system-wide bindings and variable
+# assignments from /etc/Inputrc
+$include /etc/Inputrc
 
+# history search mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
