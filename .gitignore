@@ -1,44 +1,56 @@
+# All swap files
+*.swp
+# All bkp files
+*.bkp
+# All lock files
+*.lock
+# All gdb files
+/.gdb*
+# All rc files
+/*rc
+
+# User home directory directories
+/Desktop/
+/Documents/
+/Downloads/
+/bin/
+/scripts/
 /temp/
 /tmp/
-winhome
-workspace
-VirtualBox VMs
-/*-workspace
-.pip
-.ssh
-.bash_history
-.viminfo
-.lesshst
-.inputrc
-.VirtualBox
-*.swp
-.vim/.netrwhist
-.ICEauthority
-.Xauthority
-.bash_logout
-.cache/
-.dbus/
-.dmrc
-.eclipse/
-.fontconfig/
-.gconf/
-.gnome2/
-.goutputstream-*
-.gtk-bookmarks
-.java/
-.local/
-.mission-control/
-.mozilla/
-.pki/
-.pulse-cookie
-.pulse/
-.thumbnails/
-.vboxclient-*
-.xsession-*
-Desktop/
-Documents/
-/.zenmap/
-/.gem/
-/Downloads/
+/workspace/
 
-.config/
+# User home directory hidden directories
+/.bash/
+/.cache/
+/.compiz/
+/.config/
+/.data/
+/.dbus/
+/.eclipse/
+/.gconf/
+/.gem/
+/.gnome/
+/.ipython/
+/.kde/
+/.local/
+/.logs/
+/.ssh/
+/.thumbnails/
+/.thunderbird/
+/.vim/
+
+# User home directory hidden files
+/.ICEauthority
+/.Xauthority
+/.bash_history
+/.bash_logout
+/.viminfo
+
+# Misc
+/.gimp-*/
+/.lesshst
+/.pki/
+/.pulse-cookie
+/.pulse/
+/.xsession-*
+/.zenmap/
