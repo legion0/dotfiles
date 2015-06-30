@@ -1,3 +1,6 @@
+# Ignore local git configuration
+/.gitconfig_local
+
 # All swap files
 *.swp
 # All bkp files
