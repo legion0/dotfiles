@@ -1,6 +1,0 @@
-alias h='history | less +G'
-alias hgrep='history | grep'
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -lh'
-alias la='ls --color=auto -hA'
-alias gitlivepatch='mkdir tmp_patch && git diff --name-only live > tmp_patch/patch.txt && tar -cf tmp_patch/patch.tar -T tmp_patch/patch.txt && cd tmp_patch && tar -xvf patch.tar && rm -f patch.txt patch.tar'
