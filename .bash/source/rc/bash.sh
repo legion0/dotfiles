@@ -17,6 +17,7 @@ HISTFILESIZE=10000
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+# Save history to file after each command
 if [[ *"history -a"* != "${PROMPT_COMMAND}" ]]; then
 	PROMPT_COMMAND="${PROMPT_COMMAND} history -a;"
 fi
