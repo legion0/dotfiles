@@ -44,6 +44,7 @@
 /.thumbnails/
 /.thunderbird/
 /.vim/
+/.tmp/
 
 # User home directory hidden files
 /.ICEauthority
@@ -62,3 +63,23 @@
 /.pulse/
 /.xsession-*
 /.zenmap/
+
+# Local
+/.chrome-remote-desktop-session
+/.dremel_completion_cache
+/.dremel_history
+/.gnupg/
+/.googlekeys/
+/.gqui/
+/.news_time
+/.nv/
+/.p4qt/
+/coverage/
+/upstart-dbus-bridge.29735.pid
+/upstart-dbus-bridge.3038.pid
+/upstart-file-bridge.29735.pid
+/upstart-file-bridge.3038.pid
+/.gstreamer-0.10/
+/.atom/
+/.g3python/
+/.bash/source/rc/work.sh
