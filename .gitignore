@@ -12,6 +12,9 @@
 # All rc files
 /*rc
 
+# Local bash files
+/.bash/source/*/*.local.sh
+
 # User home directory directories
 /Desktop/
 /Documents/
@@ -23,7 +26,6 @@
 /workspace/
 
 # User home directory hidden directories
-/.bash/
 /.cache/
 /.compiz/
 /.config/
@@ -33,6 +35,7 @@
 /.gconf/
 /.gem/
 /.gnome/
+/.heroku/
 /.ipython/
 /.kde/
 /.local/
