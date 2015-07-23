@@ -48,6 +48,8 @@
 /.bash_history
 /.bash_logout
 /.viminfo
+/.vboxclient-*
+/.xscreensaver
 
 # Misc
 /.gimp-*/
