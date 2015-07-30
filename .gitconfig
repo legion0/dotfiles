@@ -28,6 +28,7 @@
 	fetch = fetch -p
 	ignore = update-index --skip-worktree
 	unignore = update-index --no-skip-worktree
+	amend = commit --amend --no-edit
 [diff]
 	tool = vimdiff
 [merge]
