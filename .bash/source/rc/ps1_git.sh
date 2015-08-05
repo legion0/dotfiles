@@ -5,22 +5,22 @@ fi
 
 # Colors
 # Reset
-ResetColor="\[\e[m\]"       # Text Reset
+ResetColor="\e[m"       # Text Reset
 
 # Regular Colors
-Red="\[\e[31m\]"          # Red
-Yellow="\[\e[33m\]"       # Yellow
-Blue="\[\e[34m\]"         # Blue
-WHITE="\[\e[37m\]"
+Red="\e[31m"          # Red
+Yellow="\e[33m"       # Yellow
+Blue="\e[34m"         # Blue
+WHITE="\e[37m"
 
 # Bold
-BGreen="\[\e[1;32m\]"       # Green
+BGreen="\e[1;32m"       # Green
 
 # High Intensty
-IBlack="\[\e[0;90m\]"       # Black
+IBlack="\e[0;90m"       # Black
 
 # Bold High Intensty
-Magenta="\[\e[1;95m\]"     # Purple
+Magenta="\e[1;95m"     # Purple
 
 # Various variables you might want for your PS1 prompt instead
 Time12a="\@"
@@ -41,9 +41,6 @@ GIT_PROMPT_CLEAN="${BGreen}V"
 
 if [ -e ps1.sh ]; then
 	source ps1.sh
-else
-	PROMPT_START="$Yellow$PathShort$ResetColor"
-	PROMPT_END=" \n$WHITE$Time12a$ResetColor $ "
 fi
 
 
@@ -66,12 +63,11 @@ function update_current_git_vars() {
 	GIT_CLEAN=${__CURRENT_GIT_STATUS[7]}
 }
 
-function __set_git_prompt() {
 
-	git rev-parse --show-toplevel > /dev/null 2>&1 || { PS1="$PROMPT_START$PROMPT_END"; return 0; }
+function ps1_git() {
+	git rev-parse --show-toplevel > /dev/null 2>&1 || return 0
 
 	update_current_git_vars
-	set_virtualenv
 
 	if [ -n "$__CURRENT_GIT_STATUS" ]; then
 	  STATUS=" $GIT_PROMPT_PREFIX$GIT_PROMPT_BRANCH$GIT_BRANCH$ResetColor"
@@ -102,22 +98,7 @@ function __set_git_prompt() {
 	  fi
 	  STATUS="$STATUS$ResetColor$GIT_PROMPT_SUFFIX"
 
-	  PS1="$PYTHON_VIRTUALENV$PROMPT_START$STATUS$PROMPT_END"
-	else
-	  PS1="$PROMPT_START$PROMPT_END"
+	  echo -ne "$STATUS"
 	fi
 }
-
-# Determine active Python virtualenv details.
-function set_virtualenv () {
-  if test -z "$VIRTUAL_ENV" ; then
-      PYTHON_VIRTUALENV=""
-  else
-      PYTHON_VIRTUALENV="${BLUE}(`basename \"$VIRTUAL_ENV\"`)${ResetColor} "
-  fi
-}
-
-if [[ "${PROMPT_COMMAND}" != *" __set_git_prompt;"* ]]; then
-	PROMPT_COMMAND="${PROMPT_COMMAND} __set_git_prompt;"
-fi
 
