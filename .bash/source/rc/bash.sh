@@ -21,8 +21,11 @@ HISTTIMEFORMAT="[%F %T %z] "
 HISTCONTROL=ignoreboth
 
 # Save history to file after each command
-if [[ *"history -a"* != "${PROMPT_COMMAND}" ]]; then
-	PROMPT_COMMAND="${PROMPT_COMMAND} history -a;"
+function __history_append() {
+	history -a
+}
+if [[ "${PROMPT_COMMAND}" != *" __history_append;"* ]]; then
+	PROMPT_COMMAND="${PROMPT_COMMAND} __history_append;"
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:

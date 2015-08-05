@@ -66,7 +66,10 @@ function update_current_git_vars() {
 	GIT_CLEAN=${__CURRENT_GIT_STATUS[7]}
 }
 
-function setGitPrompt() {
+function __set_git_prompt() {
+
+	git rev-parse --show-toplevel > /dev/null 2>&1 || { PS1="$PROMPT_START$PROMPT_END"; return 0; }
+
 	update_current_git_vars
 	set_virtualenv
 
@@ -114,6 +117,7 @@ function set_virtualenv () {
   fi
 }
 
-if [[ *"setGitPrompt"* != "${PROMPT_COMMAND}" ]]; then
-	PROMPT_COMMAND="${PROMPT_COMMAND} setGitPrompt;"
+if [[ "${PROMPT_COMMAND}" != *" __set_git_prompt;"* ]]; then
+	PROMPT_COMMAND="${PROMPT_COMMAND} __set_git_prompt;"
 fi
+
