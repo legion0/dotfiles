@@ -52,3 +52,4 @@ moreSources=~/.bash/source/rc/*.sh
 if stat -t $moreSources >/dev/null 2>&1; then
 	for f in $moreSources; do source $f; done
 fi
+
