@@ -12,9 +12,9 @@ nmap <C-k> [c
 nmap <C-j> ]c
 
 " Copy to clipboard
-:nnoremap y "+y
+:nnoremap <leader>y "+y
 " Copy to clipboard in visual mode
-:xnoremap y "+y
+:xnoremap <leader>y "+y
 
 " Easier search
 :nnoremap / /\v
@@ -25,7 +25,6 @@ set hlsearch
 
 " Preserve clipboard content format
 set paste
-
 
 set noruler
 set laststatus=2
