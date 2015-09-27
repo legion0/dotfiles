@@ -1,5 +1,6 @@
 alias h='history | less +G'
 alias hgrep='history | grep'
+alias timestamp="date +'%Y%m%d_%H%M%S'"
 
 if [ -n "$DISPLAY" ]; then
   # Add an "alert" alias for long running commands.  Use like so:
