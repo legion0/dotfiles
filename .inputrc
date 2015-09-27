@@ -12,3 +12,15 @@ $include /etc/Inputrc
 # history search mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# word moving
+"\ef": forward-word
+"\eb": backward-word
+
+# Alt + d: delete word after cursor (whitespace delimiter)
+"\ed": kill-word
+
+# These kill whole arguments (bash extra, not readline builtins)
+"\ea": shell-backward-kill-word
+"\es": shell-kill-word
+
