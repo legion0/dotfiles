@@ -10,3 +10,8 @@ function git-dist {
 	local behind="$(($total - $ahead))"
 	echo "A $ahead B $behind";
 }
+
+function sleep-minutes() {
+	local minutes=$1
+	sleep $(($minutes * 60))
+}
