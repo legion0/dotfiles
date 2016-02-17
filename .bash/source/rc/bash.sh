@@ -20,7 +20,7 @@ HISTTIMEFORMAT="[%F %T %z] "
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-HISTIGNORE="?:??:history*:ls:ll:exit:pwd:clear:mount"
+HISTIGNORE="?:??:history*:ls:ll:exit:pwd:clear:mount:reset"
 
 # Save history to file after each command
 function __history_append() {
