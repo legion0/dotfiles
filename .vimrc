@@ -19,10 +19,6 @@ nmap <C-j> ]c
 " Copy to clipboard in visual mode
 :xnoremap <leader>y "+y
 
-" Easier search
-:nnoremap / /\v
-:nnoremap s :%s/\v
-
 set incsearch
 set hlsearch
 
