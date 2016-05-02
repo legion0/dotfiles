@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+[ -z "$1" ] && { echo "USAGE: $(basename "$0") <pid>" 1>&2; exit 1; }
+while [ -e /proc/$1 ]; do
+	echo -n .
+	sleep 5
+done
+

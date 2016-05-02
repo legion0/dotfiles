@@ -17,6 +17,7 @@ __add_to_path "${HOME}/info" INFOPATH
 __add_to_path "${HOME}/man" MANPATH
 
 __add_to_path "$HOME/bin"
+__add_to_path "$HOME/.bash/scripts"
 __add_to_path "/usr/local/go/bin"
 __add_to_path "/usr/local/heroku/bin"
 
