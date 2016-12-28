@@ -83,3 +83,8 @@
 /.atom/
 /.g3python/
 /.bash/source/rc/work.sh
+
+/.apport-ignore.xml
+/.sudo_as_admin_successful
+/examples.desktop
+
