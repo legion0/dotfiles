@@ -87,4 +87,6 @@
 /.apport-ignore.xml
 /.sudo_as_admin_successful
 /examples.desktop
+/.cinnamon/
+/.emacs
 
