@@ -46,6 +46,8 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+source ~/.bash/submodules/z/z.sh
+
 # Extra sources
 for f in ~/.bash/source/rc/*.sh; do
   test -f "$f" || continue
