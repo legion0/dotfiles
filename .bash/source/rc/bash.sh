@@ -36,3 +36,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # disable Ctrl+s terminal suspend
 stty -ixon
+

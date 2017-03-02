@@ -3,8 +3,8 @@ execute pathogen#infect()
 set t_Co=256
 
 syntax on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set autoindent
 set number
 "set foldmethod=syntax
@@ -57,4 +57,8 @@ set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highli
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+
+if filereadable(glob("~/.vimrc_local")) 
+    source ~/.vimrc_local
+endif
 
