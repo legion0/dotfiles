@@ -1,3 +1,7 @@
+
+# Export the source time so sourced files can know this is a resource and reset singeltons.
+export BASHRC_LAST_SOURCE="$(date -u --iso-8601=ns)"
+
 export PS4='$0:$LINENO+ '
 #set -xe
 #trap 'echo sleep 100; sleep 100' EXIT

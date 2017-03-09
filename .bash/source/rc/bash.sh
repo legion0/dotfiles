@@ -1,3 +1,5 @@
+source ~/.bash/source/lib/prompt_command.sh
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
@@ -23,12 +25,7 @@ HISTCONTROL=ignoreboth
 HISTIGNORE="?:??:history*:ls:ll:exit:pwd:clear:mount:reset"
 
 # Save history to file after each command
-function __history_append() {
-	history -a
-}
-if [[ "${PROMPT_COMMAND}" != *" __history_append;"* ]]; then
-	PROMPT_COMMAND="${PROMPT_COMMAND} __history_append;"
-fi
+PROMPT_COMMAND::add "history -a"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
