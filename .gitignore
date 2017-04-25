@@ -90,3 +90,6 @@
 /.cinnamon/
 /.emacs
 
+/.bash/source/rc/*work*
+/.bash/source/profile/*work*
+

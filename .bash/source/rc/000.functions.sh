@@ -15,3 +15,9 @@ function sleep-minutes() {
 	local minutes=$1
 	sleep $(($minutes * 60))
 }
+
+function sleep-hours() {
+	local hours=$1
+	sleep $(($hours * 60 * 60))
+}
+

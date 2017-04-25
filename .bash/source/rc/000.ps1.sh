@@ -30,10 +30,12 @@ PS1="$PROMPT_FRAME_COLOR\342\224\214\$(ret_code=\$? && [[ \$ret_code -ne 0 ]] &&
 
 script_dir="$(dirname "$BASH_SOURCE[0]")"
 
-if [ -f "${script_dir}/ps1_git.sh" ]; then
+if [ -f "${script_dir}/000.ps1_git.sh" ]; then
 	PS1="$PS1\$(ps1_git)"
 fi
 
 PS1="$PS1\n$PROMPT_FRAME_COLOR\342\224\224\342\224\200[$ENDCOLOR\$(__format_cwd)$PROMPT_FRAME_COLOR]\342\224\200>$ENDCOLOR "
 export PS1
+
+export PS4="[\$(date +%H:%M:%S)][\$0:\$LINENO]+ "
 
