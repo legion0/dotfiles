@@ -50,7 +50,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-source ~/.bash/submodules/z/z.sh
+! [[ -f "~/.bash/submodules/z/z.sh" ]] || source ~/.bash/submodules/z/z.sh
 
 # Extra sources
 for f in ~/.bash/source/rc/*.sh; do
