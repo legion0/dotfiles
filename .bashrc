@@ -1,3 +1,5 @@
+# echo pid before everything else, this is useful to catch bashrc hangs
+echo "\$BASHPID=$BASHPID"
 
 # Export the source time so sourced files can know this is a resource and reset singeltons.
 export BASHRC_LAST_SOURCE="$(date -u --iso-8601=ns)"
@@ -62,4 +64,9 @@ done
 if which tmux &>/dev/null && [[ -z "$TMUX" ]]; then
     tmux -u new-session
 fi
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

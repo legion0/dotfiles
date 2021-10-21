@@ -82,7 +82,6 @@
 /.gstreamer-0.10/
 /.atom/
 /.g3python/
-/.bash/source/rc/work.sh
 
 /.apport-ignore.xml
 /.sudo_as_admin_successful
@@ -90,6 +89,7 @@
 /.cinnamon/
 /.emacs
 
-/.bash/source/rc/*work*
-/.bash/source/profile/*work*
+/.gqui/
+/.googlekeys/
+/.tmp/
 

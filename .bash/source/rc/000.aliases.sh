@@ -1,6 +1,6 @@
 alias h='history | less +G'
 alias hgrep='history | grep'
-alias timestamp="date +'%Y%m%d_%H%M%S'"
+alias timestamp="date -u +'%Y%m%d_%H%M%S'"
 
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

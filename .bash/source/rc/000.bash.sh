@@ -10,8 +10,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=10000
+HISTSIZE=30000  # The number of commands to remember in the command history
 
 # Enable timestamps in bash_history
 HISTTIMEFORMAT="[%F %T %z] "
@@ -26,7 +25,7 @@ HISTIGNORE="?:??:history*:ls:ll:exit:pwd:clear:mount:reset"
 function __history_append() {
 	history -a
 }
-precmd_functions+=(__history_append)
+preexec_functions+=(__history_append)
 
 function __reload_bashrc_if_changed() {
 	(( "$(stat -c%Y ~/.bashrc)" <= $__BASHRC_MTIME )) || {

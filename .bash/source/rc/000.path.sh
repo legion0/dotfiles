@@ -19,5 +19,7 @@ __add_to_path "${HOME}/man" MANPATH
 __add_to_path "$HOME/bin"
 __add_to_path "$HOME/.bash/scripts"
 __add_to_path "/usr/local/go/bin"
+__add_to_path "$HOME/go/bin"
 __add_to_path "/usr/local/heroku/bin"
 
+__add_to_path "$HOME/.local/bin"
