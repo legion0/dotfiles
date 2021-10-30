@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+date --iso-8601=seconds

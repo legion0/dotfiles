@@ -1,18 +1,7 @@
-Setup Instructions:
+# Legion0/dotfiles
 
+My dotfiles and environment installation
 
-cd /tmp
+## Installation
 
-git clone https://github.com/legion0/dotfiles.git
-
-cp -r dotfiles/.git ~/
-
-cd ~
-
-git checkout .
-
-rm -rf /tmp/dotfiles
-
-rm -rf .git
-
-source .bashrc
+curl -s https://raw.githubusercontent.com/legion0/dotfiles/master/curl_install.sh | bash

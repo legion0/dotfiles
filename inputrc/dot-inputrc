@@ -1,0 +1,25 @@
+# This file controls the behaviour of line input editing for
+# programs that use the GNU Readline library.  Existing
+# programs include FTP, Bash, and GDB.
+#
+# You can re-read the inputrc file with `bind -f ~/.inputrc`.
+# Lines beginning with '#' are comments.
+#
+# First, include any system-wide bindings and variable
+# assignments from /etc/inputrc
+$include /etc/inputrc
+
+# history search mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# word moving
+"\ef": forward-word
+"\eb": backward-word
+
+# Alt + d: delete word after cursor (whitespace delimiter)
+"\ed": kill-word
+
+# These kill whole arguments (bash extra, not readline builtins)
+"\ea": shell-backward-kill-word
+"\es": shell-kill-word
