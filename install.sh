@@ -20,24 +20,23 @@ function main() {
     #     curl -s https://raw.githubusercontent.com/basherpm/basher/master/install.sh | bash
     # }
 
-    source path_manager/.bashrc.d/path_manager.sh || {
+    which git &>/dev/null || apt_install git "git - distributed version control"
+
+    which stow &>/dev/null || apt_install stow "stow - package manager for shell scripts and functions"
+
+    echo "Linking: path-manager"
+    stow --dotfiles path_manager
+
+    source "${HOME}/.bashrc.d/path_manager.sh" || {
         echo 2>&1 "ERROR: Failed to source path_manager.sh"
         exit 1
     }
 
     add_directory_to_path "${HOME}/.local/bin"
 
-    which git &>/dev/null || {
-        apt_install git "git - distributed version control"
-    }
-
     which bpkg &>/dev/null || {
         echo "Installing: bpkg - bash package manager"
         curl -Lo- "https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh" | bash
-    }    
-
-    which stow &>/dev/null || {
-        apt_install stow "stow - package manager for shell scripts and functions"
     }
 
     which term &>/dev/null || {
@@ -49,9 +48,6 @@ function main() {
         echo "Installing: bashrc manager - modular bashrc files"
         "${SCRIPT_DIR}/bashrc_manager/install.sh"
     }
-
-    echo "Linking: path-manager"
-    stow --dotfiles path_manager
 
     echo "Linking: gitconfig dotfiles"
     stow --dotfiles gitconfig
