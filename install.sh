@@ -73,11 +73,24 @@ function main() {
     echo "Linking: ps1_manager"
     stow --dotfiles ps1_manager
 
+    echo "Linking: preexec"
+    stow --dotfiles preexec
+
+    echo "Linking: profile"
+    if [[ -e "${HOME}/.profile" ]] && [[ ! -L "${HOME}/.profile" ]]; then
+        [[ ! -e "${HOME}/.profile.bkp" ]] || {
+            echo 1>&2 "ERROR: ${HOME}/.profile.bkp already exists, failed to backup current profile, aborting install"
+            exit 1
+        }
+        mv "${HOME}/.profile" "${HOME}/.profile.bkp"
+    fi
+    stow --dotfiles profile
+
     for f in *.local; do
-        [[ ! -d "${f}" ]] || {
+        if [[ -d "${f}" ]]; then
             echo "Linking: ${f}"
             stow --dotfiles "${f}"
-        }
+        fi
     done
 
     echo "Done - please restart your shell for changes to take effect"
