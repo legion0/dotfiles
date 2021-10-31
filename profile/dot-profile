@@ -6,7 +6,7 @@
 
 [[ ! -d "~/.profile.d" ]] || {
 	for f in ~/.profile.d/*.sh; do
-		source "$f"
+		[[ ! -e "$f" ]] || source "$f"
 	done
 }
 
