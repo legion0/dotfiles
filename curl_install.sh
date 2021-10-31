@@ -14,9 +14,9 @@ function main() {
 	}
 
 	echo "Cloning dotfiles repo to ${HOME}/.dotfiles"
-	read -p "Use ssh(y) or http(n)? (y/n): " ssh < /dev/tty;
+	read -p "Use ssh(s) or http(h)? (s/h): " origin_type < /dev/tty;
 	local repo_path="https://github.com/legion0/dotfiles.git"
-	[["$ssh" == "n" ]] || {
+	[[ "${origin_type}" == "h" ]] || {
 		repo_path="git@github.com:legion0/dotfiles.git"
 	}
 	git clone "${repo_path}" "${HOME}/.dotfiles"
