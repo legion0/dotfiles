@@ -20,4 +20,6 @@ function add_directory_to_path() {
     fi
 }
 
+export -f add_directory_to_path
+
 add_directory_to_path "${HOME}/.local/bin"
