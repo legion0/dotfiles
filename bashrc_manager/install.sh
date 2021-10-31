@@ -21,8 +21,10 @@ function main() {
     fi
 
     if [[ ! -e "${HOME}/.bashrc" ]] || [[ "$(readlink -f "${HOME}/.bashrc")" != "${SCRIPT_DIR}/bashrc.sh" ]]; then
-        echo "Removing old link ${HOME}/.bashrc -> $(readlink -f "${HOME}/.bashrc")"
-        rm -f "${HOME}/.bashrc"
+        [[ ! -e "${HOME}/.bashrc" ]] || {
+            echo "Removing old link ${HOME}/.bashrc -> $(readlink -f "${HOME}/.bashrc")"
+            rm -f "${HOME}/.bashrc"
+        }
         echo "Linking ${HOME}/.bashrc -> ${SCRIPT_DIR}/bashrc.sh"
         ln -s "${SCRIPT_DIR}/bashrc.sh" "${HOME}/.bashrc"
     fi
