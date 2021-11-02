@@ -54,6 +54,9 @@ function main() {
         "${SCRIPT_DIR}/gitconfig/install.sh"
     }
 
+    echo "Linking: my_bashrc"
+    stow --no-folding --dotfiles my_bashrc
+
     echo "Linking: git_ps1"
     stow --no-folding --dotfiles git_ps1
 
