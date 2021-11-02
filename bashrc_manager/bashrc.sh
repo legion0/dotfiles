@@ -1,6 +1,6 @@
 # TODO: Consider using https://github.com/bpkg/bpkg or https://github.com/basherpm/basher
 
-shopt -q nullglob && { bashrc_manager__shopt_nullglob_prev_state="-s" } || { bashrc_manager__shopt_nullglob_prev_state="-u" }
+shopt -q nullglob && bashrc_manager__shopt_nullglob_prev_state="-s" || bashrc_manager__shopt_nullglob_prev_state="-u"
 [[ "${bashrc_manager__shopt_nullglob_prev_state}" == "-s" ]] || shopt -s nullglob
 
 bashrc_manager__files=("${HOME}/.bashrc.d/"*.sh)
