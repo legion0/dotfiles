@@ -79,12 +79,11 @@ function main() {
     stow --no-folding --dotfiles preexec
 
     echo "Linking: profile"
-    if [[ -e "${HOME}/.profile" ]] && [[ ! -L "${HOME}/.profile" ]]; then
-        [[ ! -e "${HOME}/.profile.bkp" ]] || {
-            echo 1>&2 "ERROR: ${HOME}/.profile.bkp already exists, failed to backup current profile, aborting install"
-            exit 1
-        }
-        mv "${HOME}/.profile" "${HOME}/.profile.bkp"
+    local backup_path
+    backup_path="${HOME}/.profile.$(date --iso-8601=seconds | tr -dc '0-9').bkp"
+    if [[ -e "${HOME}/.profile" ]]; then
+        echo "Moving existing ${HOME}/.profile -> ${backup_path}"
+        mv "${HOME}/.profile" "${backup_path}"
     fi
     stow --no-folding --dotfiles profile
 

@@ -7,13 +7,11 @@ function main() {
     shopt -s nullglob
 
     echo "Linking .gitconfig"
+    local backup_path
+    backup_path="${HOME}/.gitconfig.$(date --iso-8601=seconds | tr -dc '0-9').bkp"
     if [[ -e "${HOME}/.gitconfig" ]]; then
-        if [[ -e "${HOME}/.gitconfig.bkp" ]]; then
-            echo 1>&2 "ERROR: ${HOME}/.gitconfig.bkp already exists, failed to backup current gitconfig, aborting install"
-            exit 1
-        fi
-        echo "Moving ${HOME}/.gitconfig -> ${HOME}/.gitconfig.bkp"
-        mv "${HOME}/.gitconfig" "${HOME}/.gitconfig.bkp"
+        echo "Moving existing ${HOME}/.gitconfig -> ${backup_path}"
+        mv "${HOME}/.gitconfig" "${backup_path}"
     fi
     echo "Creating link ${HOME}/.gitconfig -> ${SCRIPT_DIR}/.gitconfig"
     ln -s "${SCRIPT_DIR}/.gitconfig" "${HOME}/.gitconfig"

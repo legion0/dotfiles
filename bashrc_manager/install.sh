@@ -10,24 +10,15 @@ function main() {
 
     # Backup the original bashrc file if its not a symlink, we will be sourcing it.
 
-    if [[ -e "${HOME}/.bashrc" ]] && [[ ! -L "${HOME}/.bashrc" ]]; then
-        echo "Fould old bashrc file at ${HOME}/.bashrc, attempting backup"
-        [[ ! -e "${HOME}/.bashrc.d/0.original_bashrc.sh" ]] || {
-            echo 1>&2 "ERROR: ${HOME}/.bashrc.d/0.original_bashrc.sh already exists, failed to backup current bashrc, aborting install"
-            exit 1
-        }
-        echo "Moving  ${HOME}/.bashrc to ${HOME}/.bashrc.d/0.original_bashrc.sh"
-        mv "${HOME}/.bashrc" "${HOME}/.bashrc.d/0.original_bashrc.sh"
+    local backup_path
+    backup_path="${HOME}/.bashrc.$(date --iso-8601=seconds | tr -dc '0-9').bkp"
+    if [[ -e "${HOME}/.bashrc" ]]; then
+        echo "Moving existing ${HOME}/.bashrc -> ${backup_path}"
+        mv "${HOME}/.bashrc" "${backup_path}"
     fi
 
-    if [[ ! -e "${HOME}/.bashrc" ]] || [[ "$(readlink -f "${HOME}/.bashrc")" != "${SCRIPT_DIR}/bashrc.sh" ]]; then
-        [[ ! -e "${HOME}/.bashrc" ]] || {
-            echo "Removing old link ${HOME}/.bashrc -> $(readlink -f "${HOME}/.bashrc")"
-            rm -f "${HOME}/.bashrc"
-        }
-        echo "Linking ${HOME}/.bashrc -> ${SCRIPT_DIR}/bashrc.sh"
-        ln -s "${SCRIPT_DIR}/bashrc.sh" "${HOME}/.bashrc"
-    fi
+    echo "Linking ${HOME}/.bashrc -> ${SCRIPT_DIR}/bashrc.sh"
+    ln -s "${SCRIPT_DIR}/bashrc.sh" "${HOME}/.bashrc"
 }
 
 main "$@"
