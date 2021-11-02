@@ -14,6 +14,7 @@ function __build_ps1() {
 		local first=true
 		mapfile -t modules < "${HOME}/.ps1.d/ps1.modules.order"
 		for f in "${modules[@]}"; do
+			[[ -e "${HOME}/.ps1.d/${f}" ]] || continue
 			ps1_part="$(${HOME}/.ps1.d/${f})"
 			if [[ "${ps1_part}" == "lf" ]]; then
 				printf "\n"
