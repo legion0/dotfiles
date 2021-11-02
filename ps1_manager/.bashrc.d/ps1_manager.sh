@@ -1,14 +1,17 @@
 # Avoid duplicate inclusion
 [[ "${__PS1_MANAGER_VERSION:-}" != "1" ]] && __PS1_MANAGER_VERSION="1" || return 0
 
-function __build_ps1() {
+function ps1_manager::print_frame() {
+	printf "\001"; term color blue; printf "\002"; printf "${1}"; printf "\001"; term reset; printf "\002"
+}
+
+function ps1_manager::build_ps1() {
 	export PS1_RET_CODE="$?"
 	export PS1_BASHPID="$$"
 	[[ "${PROMPT_FRAME_COLOR:-}" != "" ]] || export PROMPT_FRAME_COLOR="blue"
 
 	printf "\n"
-	printf "\001"; term color blue; printf "\002"
-	printf "┌"
+	ps1_manager::print_frame "┌"
 	[[ ! -e "${HOME}/.ps1.d/ps1.modules.order" ]] || {
 		local ps1_part
 		local first=true
@@ -18,23 +21,20 @@ function __build_ps1() {
 			ps1_part="$(${HOME}/.ps1.d/${f})"
 			if [[ "${ps1_part}" == "lf" ]]; then
 				printf "\n"
-				printf "└"
+				ps1_manager::print_frame "└"
 			else
 				if ${first}; then
 					first=false
 				else
-					printf "─"
+					ps1_manager::print_frame "─"
 				fi
-				printf "["
-				printf "\001"; term reset; printf "\002"
+				ps1_manager::print_frame "["
 				printf "${ps1_part}"
-				printf "\001"; term color blue; printf "\002"
-				printf "]"
+				ps1_manager::print_frame "]"
 			fi
 		done
 	}
-	printf "─>"
-	printf "\001"; term reset; printf "\002"
+	ps1_manager::print_frame "─>"
 }
 
 function ps1_manager::update_ps1_order() {
@@ -58,8 +58,7 @@ function ps1_manager::update_ps1_order() {
 		rm -f "${new_order}"
 	)
 }
-
 ps1_manager::update_ps1_order
 unset ps1_manager::update_ps1_order
 
-export PS1="\$(__build_ps1)"
+export PS1="\$(ps1_manager::build_ps1)"
