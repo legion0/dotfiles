@@ -49,8 +49,10 @@ function main() {
         "${SCRIPT_DIR}/bashrc_manager/install.sh"
     }
 
-    echo "Linking: gitconfig dotfiles"
-    stow --dotfiles gitconfig
+    [[ ! -f "${SCRIPT_DIR}/gitconfig/install.sh" ]] || {
+        echo "Installing: gitconfig files"
+        "${SCRIPT_DIR}/gitconfig/install.sh"
+    }
 
     echo "Linking: git_ps1"
     stow --dotfiles git_ps1
