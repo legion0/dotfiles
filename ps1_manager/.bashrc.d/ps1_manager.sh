@@ -40,8 +40,6 @@ function __build_ps1() {
 function ps1_manager::update_ps1_order() {
 	(
 		shopt -s nullglob
-		local current_files
-		current_files="$(mktemp)"
 		local new_order
 		new_order="$(mktemp)"
 		if [[ -e "${HOME}/.ps1.d/ps1.modules.order" ]]; then
@@ -51,28 +49,13 @@ function ps1_manager::update_ps1_order() {
 		# Add new files that are not yet in the order
 		for f in "${HOME}/.ps1.d/"*.sh; do
 			f="$(basename "${f}")"
-			echo "${f}" >> "${current_files}"
 			grep "^${f}$" "${new_order}" &>/dev/null || {
 				echo "${f}" >> "${new_order}"
 			}
 		done
 
-		# Intersect new order with existing files to remove missing files
-		local final_order
-		final_order="$(mktemp)"
-
-		# Truncate deleted files
-		# comm -12 "${new_order}" "${current_files}" > "${final_order}"
-		while IFS= read -r new_order_file; do
-			while IFS= read -r current_file; do
-				if [[ "${new_order_file}" == "${current_file}" ]]; then
-					echo "${new_order_file}" >> "${final_order}"
-				fi
-			done < "${current_files}"
-		done < "${new_order}"
-
-		cat "${final_order}" > "${HOME}/.ps1.d/ps1.modules.order"
-		rm -f "${current_files}" "${new_order}"
+		cat "${new_order}" > "${HOME}/.ps1.d/ps1.modules.order"
+		rm -f "${new_order}"
 	)
 }
 
