@@ -25,7 +25,7 @@ function main() {
     which stow &>/dev/null || apt_install stow "stow - package manager for shell scripts and functions"
 
     echo "Linking: path-manager"
-    stow --dotfiles path_manager
+    stow --no-folding --dotfiles path_manager
 
     source "${HOME}/.bashrc.d/path_manager.sh" || {
         echo 2>&1 "ERROR: Failed to source path_manager.sh"
@@ -55,28 +55,28 @@ function main() {
     }
 
     echo "Linking: git_ps1"
-    stow --dotfiles git_ps1
+    stow --no-folding --dotfiles git_ps1
 
     echo "Linking: wait_pid"
-    stow --dotfiles wait_pid
+    stow --no-folding --dotfiles wait_pid
 
     echo "Linking: pwd_short"
-    stow --dotfiles pwd_short
+    stow --no-folding --dotfiles pwd_short
 
     echo "Linking: inputrc"
-    stow --dotfiles inputrc
+    stow --no-folding --dotfiles inputrc
 
     echo "Linking: tmux_conf"
-    stow --dotfiles tmux_conf
+    stow --no-folding --dotfiles tmux_conf
 
     echo "Linking: vimrc"
-    stow --dotfiles vimrc
+    stow --no-folding --dotfiles vimrc
 
     echo "Linking: ps1_manager"
-    stow --dotfiles ps1_manager
+    stow --no-folding --dotfiles ps1_manager
 
     echo "Linking: preexec"
-    stow --dotfiles preexec
+    stow --no-folding --dotfiles preexec
 
     echo "Linking: profile"
     if [[ -e "${HOME}/.profile" ]] && [[ ! -L "${HOME}/.profile" ]]; then
@@ -86,14 +86,7 @@ function main() {
         }
         mv "${HOME}/.profile" "${HOME}/.profile.bkp"
     fi
-    stow --dotfiles profile
-
-    for f in *.local; do
-        if [[ -d "${f}" ]]; then
-            echo "Linking: ${f}"
-            stow --dotfiles "${f}"
-        fi
-    done
+    stow --no-folding --dotfiles profile
 
     echo "Done - please restart your shell for changes to take effect"
 }
