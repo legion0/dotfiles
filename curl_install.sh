@@ -19,6 +19,9 @@ function main() {
 	[[ "${origin_type}" == "h" ]] || {
 		repo_path="git@github.com:legion0/dotfiles.git"
 	}
+	
+	which git &>/dev/null || apt_install git "git - distributed version control"
+	
 	git clone "${repo_path}" "${HOME}/.dotfiles"
 
 	echo "Starting local install"
