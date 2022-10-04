@@ -99,8 +99,8 @@ __apt_updated=false
 
 function _update_apt() {
     if ! __apt_updated; then
-        echo "Updating apt-get"
-        sudo apt-get update
+        echo "Updating apt"
+        sudo apt update
         __apt_updated=true
     fi
 }
@@ -108,7 +108,7 @@ function _update_apt() {
 function apt_install() {
     echo "Installing: ${2}"
     _update_apt
-    sudo apt-get install "${1}"
+    sudo apt install -y "${1}"
 }
 
 main "$@"
