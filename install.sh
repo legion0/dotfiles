@@ -23,6 +23,8 @@ function main() {
     which git &>/dev/null || apt_install git "git - distributed version control"
 
     which stow &>/dev/null || apt_install stow "stow - package manager for shell scripts and functions"
+    
+    which make &>/dev/null || apt_install build-essential "build-essential - make"
 
     echo "Linking: path-manager"
     stow --no-folding --dotfiles path_manager
