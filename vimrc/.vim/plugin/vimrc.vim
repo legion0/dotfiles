@@ -1,5 +1,8 @@
 set t_Co=256
 
+" Disable mouse
+set mouse=
+
 syntax on
 set tabstop=2
 set shiftwidth=2
