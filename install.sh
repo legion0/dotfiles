@@ -26,10 +26,7 @@ function main() {
     
     which make &>/dev/null || apt_install build-essential "build-essential - make"
 
-    echo "Linking: path-manager"
-    stow --no-folding --dotfiles path_manager
-
-    source "${HOME}/.bashrc.d/path_manager.sh" || {
+    source "${SCRIPT_DIR}/path_manager/.bashrc.d/path_manager.sh" || {
         echo 2>&1 "ERROR: Failed to source path_manager.sh"
         exit 1
     }
@@ -56,32 +53,35 @@ function main() {
         "${SCRIPT_DIR}/gitconfig/install.sh"
     }
 
+    echo "Linking: path-manager"
+    stow --no-folding -t "${HOME}" --dotfiles path_manager
+
     echo "Linking: my_bashrc"
-    stow --no-folding --dotfiles my_bashrc
+    stow --no-folding -t "${HOME}" --dotfiles my_bashrc
 
     echo "Linking: git_ps1"
-    stow --no-folding --dotfiles git_ps1
+    stow --no-folding -t "${HOME}" --dotfiles git_ps1
 
     echo "Linking: wait_pid"
-    stow --no-folding --dotfiles wait_pid
+    stow --no-folding -t "${HOME}" --dotfiles wait_pid
 
     echo "Linking: pwd_short"
-    stow --no-folding --dotfiles pwd_short
+    stow --no-folding -t "${HOME}" --dotfiles pwd_short
 
     echo "Linking: inputrc"
-    stow --no-folding --dotfiles inputrc
+    stow --no-folding -t "${HOME}" --dotfiles inputrc
 
     echo "Linking: tmux_conf"
-    stow --no-folding --dotfiles tmux_conf
+    stow --no-folding -t "${HOME}" --dotfiles tmux_conf
 
     echo "Linking: vimrc"
-    stow --no-folding --dotfiles vimrc
+    stow --no-folding -t "${HOME}" --dotfiles vimrc
 
     echo "Linking: ps1_manager"
-    stow --no-folding --dotfiles ps1_manager
+    stow --no-folding -t "${HOME}" --dotfiles ps1_manager
 
     echo "Linking: preexec"
-    stow --no-folding --dotfiles preexec
+    stow --no-folding -t "${HOME}" --dotfiles preexec
 
     echo "Linking: profile"
     local backup_path
@@ -90,7 +90,7 @@ function main() {
         echo "Moving existing ${HOME}/.profile -> ${backup_path}"
         mv "${HOME}/.profile" "${backup_path}"
     fi
-    stow --no-folding --dotfiles profile
+    stow --no-folding -t "${HOME}" --dotfiles profile
 
     echo "Done - please restart your shell for changes to take effect"
 }
