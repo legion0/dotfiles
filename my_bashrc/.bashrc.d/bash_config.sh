@@ -35,5 +35,12 @@ function __history_append() {
 }
 preexec_functions+=(__history_append)
 
+function __print_current_time() {
+  date --iso-8601=seconds
+}
+
+preexec_functions+=(__print_current_time)
+# precmd_functions+=(__print_current_time) # Already in ps1
+
 # disable Ctrl+s terminal suspend
 stty -ixon
